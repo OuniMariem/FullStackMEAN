@@ -5,8 +5,8 @@ const Devices = require("../Models/Devices");
 exports.addNewDevice = async (req, res) => {
   try {
     console.log(req.body);
-    const { classId, refference, brand, note } = req.body;
-    const deviceForAdding = new Devices({ classId, refference, note, brand });
+    const { classId, reference, brand, note } = req.body;
+    const deviceForAdding = new Devices({ classId, reference, note, brand });
     await devicesService.addDevice(deviceForAdding);
     res.status(200).json({ message: "Adding Device with succes." });
   } catch (error) {
@@ -35,10 +35,10 @@ exports.getDeviceById = async (req, res) => {
 exports.updateDevice = async (req, res) => {
   try {
     const id = req.params.id;
-    const { refference, brand, note, classId } = req.body;
+    const { reference, brand, note, classId } = req.body;
     console.log(req.body);
     if (id) {
-      await devicesService.updateDevice(id, refference, brand, note, classId);
+      await devicesService.updateDevice(id, reference, brand, note, classId);
       res.status(201).json({ message: " Device updated Successfully " });
     }
   } catch (err) {

@@ -2,11 +2,11 @@ const Devices = require("../Models/Devices");
 exports.addDevice = async (device) => {
   return await Devices.create(device);
 };
-exports.updateDevice = async (id, refference, brand, type, classId) => {
+exports.updateDevice = async (id, reference, brand, note, classId) => {
   return await Devices.findByIdAndUpdate(id, {
-    refference: refference,
+    reference: reference,
     brand: brand,
-    type: type,
+    note: note,
     classId: classId,
   });
 };

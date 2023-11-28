@@ -18,11 +18,17 @@ const ClassesSchema = new Schema(
     },
     note: {
       type: String,
+      required: true,
     },
     capacityOfStudent: {
       type: Number,
       required: true,
     },
+    department: {
+      type: String,
+      required: true,
+    }
+  
   },
   { collection: "Class" }
 );

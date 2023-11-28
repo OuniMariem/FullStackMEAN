@@ -7,7 +7,7 @@ const devicesSchema = new Schema(
       type: mongoose.Schema.ObjectId,
       ref: "Class",
     },
-    refference: {
+    reference: {
       type: String,
       required: true,
     },

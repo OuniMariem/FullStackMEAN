@@ -1,10 +1,11 @@
 const MdlClass = require("../Models/Class");
 const classServ = require("../Services/classService");
 const deviceSer = require("../Services/devicesService");
+
 // Adding a new class
 exports.addNewClasse = async (req, res) => {
   try {
-    const { name, type, note, capacityOfStudent, building } = req.body;
+    const { name, type, note, capacityOfStudent, building,department } = req.body;
     console.log("yyy", req.body);
     const ClassForAdding = new MdlClass({
       name,
@@ -12,6 +13,7 @@ exports.addNewClasse = async (req, res) => {
       note,
       capacityOfStudent,
       building,
+      department
     });
     console.log("ttt", ClassForAdding);
     await classServ.addNewClass(ClassForAdding);
@@ -46,11 +48,12 @@ exports.classDetails = async (req, res) => {
       .json({ message: "An error occurred while getting this class " });
   }
 };
+
 // updating a specific class
 exports.updateClass = async (req, res) => {
   try {
     const id = req.params.id;
-    const { name, type, building, note, capacityOfStudent } = req.body;
+    const { name, type, building, note, capacityOfStudent, department} = req.body;
     console.log(req.body);
     if (id) {
       await classServ.updateClass(
@@ -59,7 +62,8 @@ exports.updateClass = async (req, res) => {
         type,
         building,
         note,
-        capacityOfStudent
+        capacityOfStudent,
+        department
       );
       res.status(201).json({ message: " class updated Successfully " });
     }

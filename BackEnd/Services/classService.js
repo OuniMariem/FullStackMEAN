@@ -20,7 +20,7 @@ exports.updateClass = async (
   building,
   note,
   capacityOfStudent,
-  image
+  department
 ) => {
   return await modelClass.findByIdAndUpdate(id, {
     name: name,
@@ -28,7 +28,7 @@ exports.updateClass = async (
     building: building,
     note: note,
     capacityOfStudent: capacityOfStudent,
-    image: image,
+    department: department
   });
 };
 exports.deleteClass = async (id) => {
